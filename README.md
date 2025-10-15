@@ -38,3 +38,6 @@ Early warnings reduce exposure for vulnerable groups; hospitals and civic respon
 Policy evaluation: Compare predicted “no-intervention” trajectories vs observed “with-intervention” to quantify benefits and optimize spend.
 
 Immediate usability: Outputs match current agency workflows, minimizing IT friction.
+
+SUMMARY 
+This project delivers station-level hourly O3/NO2 forecasts for 24–48 hours using a single LightGBM model per pollutant trained with strict time-aware splits to prevent leakage. The feature builder encodes hour/day/month cycles, multi-scale lags and rolling windows, synthesized wind speed, and error-aware lag signals to reduce peak-timing bias and improve stability when inputs are inconsistent. The pipeline persists scaler/model, aligns unseen inputs to training features, prints RMSE/MAE/R2/RIA, and produces overlay and scatter diagnostics. Daily runs export a one-page PDF, CSVs, and a lightweight web plot so agencies can act immediately. The approach is site-agnostic, efficient on CPUs, and extensible to PM2.5/AQI with minimal changes.
